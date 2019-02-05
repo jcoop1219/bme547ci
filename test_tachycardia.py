@@ -3,5 +3,8 @@ def test_is_tachycardic():
 
     stringToCheck = "tachycardic"
     result = is_tachycardic(stringToCheck)
+    assert result is True
 
+    stringToCheck = "tachycardic"
+    result = is_tachycardic(stringToCheck)
     assert result is True
