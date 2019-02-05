@@ -1,6 +1,6 @@
 def is_tachycardic(string):
     convertedString = string.lower()
     if "tachycardic" in convertedString:
-        print("Success")
+        return True
     else:
-        print("Fail")
+        return False
