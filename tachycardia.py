@@ -1,5 +1,5 @@
-def is_tachycardic(string):
-    convertedString = string.lower()
+def is_tachycardic(stringToCheck):
+    convertedString = stringToCheck.lower()
     if "tachycardic" in convertedString:
         return True
     else:
