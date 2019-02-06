@@ -8,7 +8,7 @@ def is_tachycardic(stringToCheck):
     convertedString = stringToCheck.lower()
     for char in targetString:
         testString = testString + char
-        if testString not in enteredString:
+        if testString not in convertedString:
             typoCount += 1
             testString = ""
     if typoCount <= 2: # maximum tolerance is 2 missing or misspelled letters
