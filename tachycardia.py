@@ -13,6 +13,7 @@ def is_tachycardic(stringToCheck):
         if testString not in convertedString[beginRange:endRange]:
             typoCount += 1
             testString = ""
+            beginRange = endRange - 1
         else:
             endRange += 1
 
