@@ -22,7 +22,7 @@ from tachycardia import is_tachycardic
                         ("tachycardicZ", True),
                         ("3achycardic", True),
                         ("tachycardi3", True),
-                        ("achycardic", True), # one letter missing
+                        ("achycardic", True),  # one letter missing
                         ("tchycardic", True),
                         ("tahycardic", True),
                         ("tacycardic", True),
@@ -33,7 +33,7 @@ from tachycardia import is_tachycardic
                         ("tachycaric", True),
                         ("tachycardc", True),
                         ("tachycardi", True),
-                        ("chycardic", True), # two letters missing
+                        ("chycardic", True),  # two letters missing
                         ("ahycardic", True),
                         ("acycardic", True),
                         ("achcardic", True),
@@ -88,7 +88,7 @@ from tachycardia import is_tachycardic
                         ("tachycarc", True),
                         ("tachycari", True),
                         ("tachycard", True),
-                        ("hycardic", False), # three letters missing
+                        ("hycardic", False),  # three letters missing
                         ("achcaric", False),
                         ("tachycar", False),
                         ("chycardi", False),
