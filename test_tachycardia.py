@@ -95,6 +95,34 @@ from tachycardia import is_tachycardic
                         ("achycard", False),
                         ("tacardic", False),
                         ("tacycaic", False),
+                        ("tachyacardic", True),  # one letter added
+                        ("atachycardic", True),
+                        ("tachycardica", True),
+                        ("taatchycardic", True),  # two letters added
+                        ("tacahycatrdic", True),
+                        ("atachycardict", True),
+                        ("ttachycardica", True),
+                        ("ttachycardicc", True),
+                        ("ctachycardict", True),
+                        ("tachycaatrdic", True),
+                        ("tachyatccardic", False),  # three letters added
+                        ("ttaacchycardic", False),
+                        ("atachycatrdicc", False),
+                        ("ttachycaardicc", False),
+                        ("tachycsrdic", True),  # one letter substituted
+                        ("tacGycardic", True),
+                        ("tachycardoc", True),
+                        ("tachycardiV", True),
+                        ("zachycardic", True),
+                        ("taxhycSrdic", True),  # two letters substituted
+                        ("zachycareic", True),
+                        ("tavhycardin", True),
+                        ("zachycardin", True),
+                        ("tavhucabdic", False),  # three letters substituted
+                        ("tschycbrdoc", False),
+                        ("zaccycbrdic", False),
+                        ("taxhyxardiv", False),
+                        ("zachyxardiv", False),
                         ])
 def test_is_tachycardic(stringToCheck, expected):
     result = is_tachycardic(stringToCheck)
