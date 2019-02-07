@@ -2,12 +2,21 @@ import pytest
 from tachycardia import is_tachycardic
 
 
+# Test case of uppercase entry
 @pytest.mark.parametrize("stringToCheck, expected", [
                         ("tachycardic", True),
                         ("tachycardiC", True),
                         ("TachycardiC", True),
                         ("TACHYCARDIC", True),
                         ("tachycardiC", True),
+                        ])
+def test_uppercase_is_tachycardic(stringToCheck, expected):
+    result = is_tachycardic(stringToCheck)
+    assert result is expected
+
+
+# Test case of leading/trailing punctuation, spaces, or numbers
+@pytest.mark.parametrize("stringToCheck, expected", [
                         (" tachycardic", True),
                         ("tachycardic ", True),
                         (" tachycardic ", True),
@@ -18,11 +27,15 @@ from tachycardia import is_tachycardic
                         ("!!!tachycardic!!!", True),
                         ("tachycardic3", True),
                         ("3tachycardic", True),
-                        ("Ztachycardic", True),
-                        ("tachycardicZ", True),
-                        ("3achycardic", True),
-                        ("tachycardi3", True),
-                        ("achycardic", True),  # one letter missing
+                        ])
+def test_leadTrail_is_tachycardic(stringToCheck, expected):
+    result = is_tachycardic(stringToCheck)
+    assert result is expected
+
+
+# Test case of one letter missing
+@pytest.mark.parametrize("stringToCheck, expected", [
+                        ("achycardic", True),
                         ("tchycardic", True),
                         ("tahycardic", True),
                         ("tacycardic", True),
@@ -33,7 +46,15 @@ from tachycardia import is_tachycardic
                         ("tachycaric", True),
                         ("tachycardc", True),
                         ("tachycardi", True),
-                        ("chycardic", True),  # two letters missing
+                        ])
+def test_missingOneLetter_is_tachycardic(stringToCheck, expected):
+    result = is_tachycardic(stringToCheck)
+    assert result is expected
+
+
+# Test case of two letters missing
+@pytest.mark.parametrize("stringToCheck, expected", [
+                        ("chycardic", True),
                         ("ahycardic", True),
                         ("acycardic", True),
                         ("achcardic", True),
@@ -88,42 +109,98 @@ from tachycardia import is_tachycardic
                         ("tachycarc", True),
                         ("tachycari", True),
                         ("tachycard", True),
-                        ("hycardic", False),  # three letters missing
+                        ])
+def test_missingTwoLetters_is_tachycardic(stringToCheck, expected):
+    result = is_tachycardic(stringToCheck)
+    assert result is expected
+
+
+# Test case of three letters missing
+@pytest.mark.parametrize("stringToCheck, expected", [
+                        ("hycardic", False),
                         ("achcaric", False),
                         ("tachycar", False),
                         ("chycardi", False),
                         ("achycard", False),
                         ("tacardic", False),
                         ("tacycaic", False),
-                        ("tachyacardic", True),  # one letter added
+                        ])
+def test_missingThreeLetters_is_tachycardic(stringToCheck, expected):
+    result = is_tachycardic(stringToCheck)
+    assert result is expected
+
+
+# Test case of one letter added
+@pytest.mark.parametrize("stringToCheck, expected", [
+                        ("tachyacardic", True),
                         ("atachycardic", True),
                         ("tachycardica", True),
-                        ("taatchycardic", True),  # two letters added
+                        ])
+def test_addedOneLetter_is_tachycardic(stringToCheck, expected):
+    result = is_tachycardic(stringToCheck)
+    assert result is expected
+
+
+# Test case of two letters added
+@pytest.mark.parametrize("stringToCheck, expected", [
+                        ("taatchycardic", True),
                         ("tacahycatrdic", True),
                         ("atachycardict", True),
                         ("ttachycardica", True),
                         ("ttachycardicc", True),
                         ("ctachycardict", True),
                         ("tachycaatrdic", True),
-                        ("tachyatccardic", False),  # three letters added
+                        ])
+def test_addedTwoLetters_is_tachycardic(stringToCheck, expected):
+    result = is_tachycardic(stringToCheck)
+    assert result is expected
+
+
+# Test case of three letters added
+@pytest.mark.parametrize("stringToCheck, expected", [
+                        ("tachyatccardic", False),
                         ("ttaacchycardic", False),
                         ("atachycatrdicc", False),
                         ("ttachycaardicc", False),
-                        ("tachycsrdic", True),  # one letter substituted
+                        ])
+def test_addedThreeLetters_is_tachycardic(stringToCheck, expected):
+    result = is_tachycardic(stringToCheck)
+    assert result is expected
+
+
+# Test case of one letter substituted
+@pytest.mark.parametrize("stringToCheck, expected", [
+                        ("tachycsrdic", True),
                         ("tacGycardic", True),
                         ("tachycardoc", True),
                         ("tachycardiV", True),
                         ("zachycardic", True),
-                        ("taxhycSrdic", True),  # two letters substituted
+                        ])
+def test_subOneLetter_is_tachycardic(stringToCheck, expected):
+    result = is_tachycardic(stringToCheck)
+    assert result is expected
+
+
+# Test case of two letters substituted
+@pytest.mark.parametrize("stringToCheck, expected", [
+                        ("taxhycSrdic", True),
                         ("zachycareic", True),
                         ("tavhycardin", True),
                         ("zachycardin", True),
-                        ("tavhucabdic", False),  # three letters substituted
+                        ])
+def test_subTwoLetters_is_tachycardic(stringToCheck, expected):
+    result = is_tachycardic(stringToCheck)
+    assert result is expected
+
+
+# Test case of three letters substituted
+@pytest.mark.parametrize("stringToCheck, expected", [
+                        ("tavhucabdic", False),
                         ("tschycbrdoc", False),
                         ("zaccycbrdic", False),
                         ("taxhyxardiv", False),
                         ("zachyxardiv", False),
                         ])
-def test_is_tachycardic(stringToCheck, expected):
+def test_subThreeLetters_is_tachycardic(stringToCheck, expected):
     result = is_tachycardic(stringToCheck)
     assert result is expected
