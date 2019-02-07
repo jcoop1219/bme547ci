@@ -20,4 +20,7 @@ def is_tachycardic(stringToCheck):
     else:
         return False
 
+<<<<<<< HEAD
 #test
+=======
+>>>>>>> 5893100b221274d56641defee054ba483c63c2c1
