@@ -7,17 +7,8 @@ def is_tachycardic(stringToCheck):
     beginRange = 0
     endRange = 1
 
-    convertedString = stringToCheck.lower()
-    for char in targetString:
-        testString = testString + char
-        if testString not in convertedString[beginRange:endRange]:
-            typoCount += 1
-            testString = ""
-            beginRange = endRange - 1
-        else:
-            endRange += 1
-
-    if typoCount <= 2: # maximum tolerance is 2 missing or misspelled letters
-        return True
-    else:
-        return False
+    # Clean input by remove trailing/leading spaces and punctuation and set to lowercase
+    for char in stringToCheck:
+        if char.isalpha() is False:
+            stringToCheck = stringToCheck.replace(char, "")
+    stringToCheck = stringToCheck.lower()
