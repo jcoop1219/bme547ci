@@ -11,3 +11,4 @@ Developed by Jason Cooper
 1. Activate your virtual environment.
 1. Enter the following command into the command line of the terminal: `python tachycardia.py`
 1. Enter a string which you would like to check against the string `tachycardic`.
+1. The module will return whether or not the entered string matches on `tachycardic`. Close enough representations of the word (1-2 letters added, missing, or substituted) still count as matching.
