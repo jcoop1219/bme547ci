@@ -19,3 +19,4 @@ def is_tachycardic(stringToCheck):
         return True
     else:
         return False
+
