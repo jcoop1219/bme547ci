@@ -4,3 +4,4 @@ jupyter
 ipython
 pytest
 pytest-pep8
+python-Levenshtein
