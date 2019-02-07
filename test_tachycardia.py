@@ -22,7 +22,7 @@ from tachycardia import is_tachycardic
                         ("tachycardicZ", True),
                         ("3achycardic", True),
                         ("tachycardi3", True),
-                        ("achycardic", True), # one letter missing
+                        ("achycardic", True),  # one letter missing
                         ("tchycardic", True),
                         ("tahycardic", True),
                         ("tacycardic", True),
@@ -33,7 +33,7 @@ from tachycardia import is_tachycardic
                         ("tachycaric", True),
                         ("tachycardc", True),
                         ("tachycardi", True),
-                        ("chycardic", True), # two letters missing
+                        ("chycardic", True),  # two letters missing
                         ("ahycardic", True),
                         ("acycardic", True),
                         ("achcardic", True),
@@ -88,16 +88,41 @@ from tachycardia import is_tachycardic
                         ("tachycarc", True),
                         ("tachycari", True),
                         ("tachycard", True),
-                        ("hycardic", False), # three letters missing
+                        ("hycardic", False),  # three letters missing
                         ("achcaric", False),
                         ("tachycar", False),
                         ("chycardi", False),
                         ("achycard", False),
                         ("tacardic", False),
                         ("tacycaic", False),
-                        ("tachy3cardic", False),
-                        ("tachyZcardic", False),
-                        ("tachy cardic", False),
+                        ("tachyacardic", True),  # one letter added
+                        ("atachycardic", True),
+                        ("tachycardica", True),
+                        ("taatchycardic", True),  # two letters added
+                        ("tacahycatrdic", True),
+                        ("atachycardict", True),
+                        ("ttachycardica", True),
+                        ("ttachycardicc", True),
+                        ("ctachycardict", True),
+                        ("tachycaatrdic", True),
+                        ("tachyatccardic", False),  # three letters added
+                        ("ttaacchycardic", False),
+                        ("atachycatrdicc", False),
+                        ("ttachycaardicc", False),
+                        ("tachycsrdic", True),  # one letter substituted
+                        ("tacGycardic", True),
+                        ("tachycardoc", True),
+                        ("tachycardiV", True),
+                        ("zachycardic", True),
+                        ("taxhycSrdic", True),  # two letters substituted
+                        ("zachycareic", True),
+                        ("tavhycardin", True),
+                        ("zachycardin", True),
+                        ("tavhucabdic", False),  # three letters substituted
+                        ("tschycbrdoc", False),
+                        ("zaccycbrdic", False),
+                        ("taxhyxardiv", False),
+                        ("zachyxardiv", False),
                         ])
 def test_is_tachycardic(stringToCheck, expected):
     result = is_tachycardic(stringToCheck)
