@@ -97,7 +97,6 @@ from tachycardia import is_tachycardic
                         ("tacycaic", False),
                         ("tachy3cardic", False),
                         ("tachyZcardic", False),
-                        ("tachy cardic", False),
                         ])
 def test_is_tachycardic(stringToCheck, expected):
     result = is_tachycardic(stringToCheck)
