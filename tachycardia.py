@@ -1,10 +1,29 @@
 from Levenshtein import distance
 
 
+def main():
+    stringToCheck = getInput()
+    output = is_tachycardic(stringToCheck)
+    provideFeedback(output)
+
+
+def getInput():
+    stringToCheck = input("\n\nEnter String: ")
+    return stringToCheck
+
+
+def provideFeedback(output):
+    if output is True:
+        print("\nThe entered word matches 'tachycardic'.")
+    else:
+        print("\nThe entered word does NOT match 'tachycardic'.")
+    print("\n")
+
+
 def is_tachycardic(stringToCheck):
     targetString = "tachycardic"  # string to check against
 
-    # Clean input by removing trailing/leading spaces and punctuation
+    # Clean input by removing trailing/leading non-alphabetic characters
     # and set to lowercase
     for char in stringToCheck:
         if char.isalpha() is False:
@@ -19,3 +38,6 @@ def is_tachycardic(stringToCheck):
         return True
     else:
         return False
+
+if __name__ == "__main__":
+    main()
