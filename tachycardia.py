@@ -1,23 +1,18 @@
+from Levenshtein import distance
+
 def is_tachycardic(stringToCheck):
     targetString = "tachycardic" # string to check against
 
-    # Initialize variables
-    testString = "" # string which will be built out in loop below
-    typoCount = 0 # number of typos (uppercase excluded) in stringToCheck
-    beginRange = 0
-    endRange = 1
+    # Clean input by remove trailing/leading spaces and punctuation and set to lowercase
+    for char in stringToCheck:
+        if char.isalpha() is False:
+            stringToCheck = stringToCheck.replace(char, "")
+    stringToCheck = stringToCheck.lower()
 
-    convertedString = stringToCheck.lower()
-    for char in targetString:
-        testString = testString + char
-        if testString not in convertedString[beginRange:endRange]:
-            typoCount += 1
-            testString = ""
-            beginRange = endRange - 1
-        else:
-            endRange += 1
+    # Use distance function from Levenshtein library to find the number of differences between strings
+    differenceCount = distance(stringToCheck, targetString)
 
-    if typoCount <= 2: # maximum tolerance is 2 missing or misspelled letters
+    if differenceCount <= 2: # maximum tolerance is 2 missing or misspelled letters
         return True
     else:
         return False
